@@ -17,11 +17,11 @@ return new class extends Migration
             $table->mediumText('description');
             $table->string('title', 30); 
             $table->dateTime('date'); 
-            $table->string('image_url', 200); 
-            $table->string('city', 100); 
+            $table->string('image_url', 200); // URL de l’image principale de l’événement.
+            $table->string('city', 100); //Ville où se déroule l’événement.
             $table->string('address', 200);
-            $table->enum('status', ['upcoming', 'completed', 'cancelled']); 
-            $table->timestamp('created_on')->useCurrent();
+            $table->enum('status', ['upcoming', 'completed', 'cancelled']); //Statut de l’événement.
+            $table->timestamp('created_on')->useCurrent();//Date de création de l’événement.
             $table->timestamps();
         });
     }
