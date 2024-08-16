@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders_intents', function (Blueprint $table) {
-            $table->id();// Identifiant unique de l’intention de commande (order_intent_id)
-            $table->mediumInteger('price'); // Prix total de l’intention de commande (order_intent_price)
-            $table->string('type', 50); // Type de l’intention de commande (order_intent_type)
-            $table->string('user_email', 100); // Email de l’utilisateur
-            $table->string('user_phone', 20); // Téléphone de l’utilisateur
-            $table->dateTime('expiration_date'); // Date d’expiration de l’intention de commande
+            $table->id('order_intent_id');
+            $table->mediumInteger('order_intent_price');
+            $table->string('order_intent_type', 50);
+            $table->string('user_email', 100);
+            $table->string('user_phone', 20);
+            $table->dateTime('expiration_date');
             $table->timestamps();
         });
     }

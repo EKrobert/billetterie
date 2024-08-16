@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->enum('category', ['Autre', 'Concert-Spectacle', 'Diner Gala', 'Festival', 'Formation']);
-            $table->mediumText('description');
-            $table->string('title', 30); 
-            $table->dateTime('date'); 
-            $table->string('image_url', 200); // URL de l’image principale de l’événement.
-            $table->string('city', 100); //Ville où se déroule l’événement.
-            $table->string('address', 200);
-            $table->enum('status', ['upcoming', 'completed', 'cancelled']); //Statut de l’événement.
-            $table->timestamp('created_on')->useCurrent();//Date de création de l’événement.
+            $table->id('event_id');
+            $table->enum('event_category', ['Autre', 'Concert-Spectacle', 'Diner Gala', 'Festival', 'Formation']);
+            $table->string('event_title', 30);
+            $table->mediumText('event_description');
+            $table->dateTime('event_date');
+            $table->string('event_image', 200);
+            $table->string('event_city', 100);
+            $table->string('event_address', 200);
+            $table->enum('event_status', ['upcoming', 'completed', 'cancelled']);
+            $table->timestamp('event_created_on')->useCurrent();
             $table->timestamps();
         });
     }

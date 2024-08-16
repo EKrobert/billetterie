@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ticket_types', function (Blueprint $table) {
-            $table->id(); // Identifiant unique du type de ticket (ticket_type_id)
-            $table->foreignId('event_id')->constrained('events'); // Clé étrangère vers la table events (ticket_type_event_id)
-            $table->string('name', 50); // Nom du type de ticket (ticket_type_name)
-            $table->mediumInteger('price'); // Prix du type de ticket (ticket_type_price)
-            $table->integer('quantity'); // Quantité totale de tickets disponibles (ticket_type_quantity)
-            $table->integer('real_quantity'); // Quantité réelle de tickets disponibles (ticket_type_real_quantity)
-            $table->integer('total_quantity'); // Quantité totale de tickets (ticket_type_total_quantity)
-            $table->mediumText('description'); // Description du type de ticket (ticket_type_description)
+            $table->id('ticket_type_id');
+            $table->foreignId('ticket_type_event_id')->constrained('events', 'event_id');
+            $table->string('ticket_type_name', 50);
+            $table->mediumInteger('ticket_type_price');
+            $table->integer('ticket_type_quantity');
+            $table->integer('ticket_type_real_quantity');
+            $table->integer('ticket_type_total_quantity');
+            $table->mediumText('ticket_type_description');
             $table->timestamps();
         });
     }

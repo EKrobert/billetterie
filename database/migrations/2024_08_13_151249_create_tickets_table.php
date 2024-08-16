@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('event_id')->constrained('events'); // Clé étrangère vers la table events (ticket_event_id)
-            $table->string('email', 255); // Email du détenteur du ticket (ticket_email)
-            $table->string('phone', 20); // Téléphone du détenteur du ticket (ticket_phone)
-            $table->mediumInteger('price'); // Prix du ticket (ticket_price)
-            $table->foreignId('order_id')->constrained('orders'); // Clé étrangère vers la table orders (ticket_order_id)
-            $table->string('key', 100); // Clé unique du ticket (ticket_key)
-            $table->foreignId('ticket_type_id')->constrained('ticket_types'); // Clé étrangère vers la table ticket_types (ticket_ticket_type_id)
-            $table->enum('status', ['active', 'validated', 'expired', 'cancelled']); // Statut du ticket (ticket_status)
-            $table->timestamp('created')->useCurrent(); // Date de création du ticket (ticket_created_on)
+            $table->id('ticket_id');
+            $table->foreignId('ticket_event_id')->constrained('events','event_id');
+            $table->string('ticket_email', 255);
+            $table->string('ticket_phone', 20);
+            $table->mediumInteger('ticket_price');
+            $table->foreignId('ticket_order_id')->constrained('orders','order_id');
+            $table->string('ticket_key', 100)->unique();
+            $table->foreignId('ticket_ticket_type_id')->constrained('ticket_types','ticket_type_id');
+            $table->enum('ticket_status', ['active', 'validated', 'expired', 'cancelled']);
+            $table->timestamp('ticket_created_on')->useCurrent();
             $table->timestamps();
         });
     }
