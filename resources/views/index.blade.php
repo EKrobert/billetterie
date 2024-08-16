@@ -51,12 +51,12 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    @foreach ($events->data as $event)
+                                    @foreach ($events as $event)
                                     <tr>
-                                        <td>{{$event->title}}</td>
-                                        <td>{{$event->category}}</td>
-                                        <td>{{$event->city}}</td>
-                                        <td>{{$event->status}}</td>
+                                        <td>{{$event->event_title}}</td>
+                                        <td>{{$event->event_category}}</td>
+                                        <td>{{$event->event_city}}</td>
+                                        <td>{{$event->event_status}}</td>
                                         <td> <a href=""><i class="fas fa-eye"></i></a></td>
                                     </tr>
                                     @endforeach

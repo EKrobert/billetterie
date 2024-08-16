@@ -14,7 +14,9 @@ class EventViewController extends Controller
     public function index()
     {
         $eventController = new EventController();
-        $events = $eventController->index()->getData();
+        $evts = $eventController->index()->getData();
+        $events = $evts->data->data;
+        // dd($events->data->data);
         return view('index', ['events' => $events]);
     }
 

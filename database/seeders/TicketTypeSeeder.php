@@ -14,7 +14,7 @@ class TicketTypeSeeder extends Seeder
     public function run(): void
     {
         TicketTypes::create([
-            'event_id' => 1,
+            'ticket_type_event_id' => 1,
             'ticket_type_description' => 'Un concert exceptionnel avec des artistes de renom.',
             'ticket_type_name' => 'Concert d\'été',
             'ticket_type_quantity' => 12 ,

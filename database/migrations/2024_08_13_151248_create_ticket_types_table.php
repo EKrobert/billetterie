@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ticket_types', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('event_id')->constrained('events');
+            $table->id('ticket_type_id');
+            $table->foreignId('ticket_type_event_id')->constrained('events', 'event_id');
             $table->string('ticket_type_name', 50);
             $table->mediumInteger('ticket_type_price');
             $table->integer('ticket_type_quantity');

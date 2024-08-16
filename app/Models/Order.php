@@ -9,6 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'order_id';
+
     public function event()
     {
         return $this->belongsTo(Event::class, 'order_event_id');

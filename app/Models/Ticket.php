@@ -8,19 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'ticket_id';
 
     public function event()
     {
-        return $this->belongsTo(Event::class, 'ticket_event_id');
+        return $this->belongsTo(Event::class, 'ticket_event_id','event_id');
     }
 
     public function order()
     {
-        return $this->belongsTo(Order::class, 'ticket_order_id');
+        return $this->belongsTo(Order::class, 'ticket_order_id', 'order_id');
     }
 
     public function ticketType()
     {
-        return $this->belongsTo(TicketTypes::class, 'ticket_ticket_type_id');
+        return $this->belongsTo(TicketTypes::class, 'ticket_ticket_type_id', 'ticket_type_id');
     }
 }

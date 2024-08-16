@@ -53,7 +53,7 @@
                                 <tbody>
                                     @foreach ($events->data as $event)
                                     <tr>
-                                        <td>{{$event->title}}</td>
+                                        <td>{{$event->event_title}}</td>
                                         <td>{{$event->category}}</td>
                                         <td>{{$event->city}}</td>
                                         <td>{{$event->status}}</td>

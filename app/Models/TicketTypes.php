@@ -9,6 +9,8 @@ class TicketTypes extends Model
 {
     use HasFactory;
     
+    protected $primaryKey = 'ticket_type_id';
+    
     public function event()
     {
         return $this->belongsTo(Event::class, 'ticket_type_event_id');

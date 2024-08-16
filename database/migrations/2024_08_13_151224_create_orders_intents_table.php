@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders_intents', function (Blueprint $table) {
-            $table->id();
+            $table->id('order_intent_id');
             $table->mediumInteger('order_intent_price');
             $table->string('order_intent_type', 50);
             $table->string('user_email', 100);

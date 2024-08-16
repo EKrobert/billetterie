@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class OrderIntent extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'order_intent_id';
 }
